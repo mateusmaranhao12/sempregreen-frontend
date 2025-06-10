@@ -3,13 +3,13 @@ import logo from '../app/assets/logo_completa.png'
 
 export default function Logo() {
     return (
-        <div className="mb-6 w-[350px] h-auto max-w-full">
+        <div className="mb-6 w-[700px] h-auto max-w-full">
             <Image
                 src={logo}
                 alt="Logo SempreGreen"
                 layout="responsive"
-                width={700}
-                height={400}
+                width={1000}
+                height={600}
             />
         </div>
     );
