@@ -17,7 +17,11 @@ export default function LoginForm() {
         <Input type="email" placeholder="Seu email" />
         <Input type="password" placeholder="Senha" />
 
-        <Button variant="yellow">Entrar</Button>
+        <Button
+          variant="yellow"
+          type="button"
+          onClick={() => router.push('/dashboard')}
+        >Entrar</Button>
 
         <p className="text-white text-sm text-center">
           Ainda não é cadastrado? Utilize o botão abaixo e se cadastre agora mesmo
