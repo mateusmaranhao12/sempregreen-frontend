@@ -1,15 +1,15 @@
 import React from 'react'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary' | 'link'
+    variant?: 'yellow' | 'blue' | 'white'
 }
 
-export default function Button({ variant = 'primary', ...props }: ButtonProps) {
+export default function Button({ variant = 'yellow', ...props }: ButtonProps) {
   const base = "w-full text-white font-bold py-2 px-4 rounded";
   const variants = {
-    primary: "bg-yellow-400 hover:bg-yellow-500",
-    secondary: "bg-blue-600 hover:bg-blue-700",
-    link: "bg-transparent border border-white hover:bg-white hover:text-black",
+    yellow: "bg-yellow-500 cursor-pointer hover:bg-yellow-600",
+    blue: "bg-blue-600 cursor-pointer hover:bg-blue-700",
+    white: "bg-transparent cursor-pointer border border-white hover:bg-white hover:text-black",
   };
 
   return (
