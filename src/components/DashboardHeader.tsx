@@ -22,7 +22,7 @@ export default function DashboardHeader() {
 
     return (
         <header className="bg-[#0e2a20] text-white px-4 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
                 <Logo />
                 <div className="text-sm flex items-center gap-2">
                     <Image src={country} alt="Bandeira BR" width={24} height={16} />

@@ -6,7 +6,7 @@ import MatchList from '@/components/MatchList';
 
 export default function DashboardPage() {
     return (
-        <div className="min-h-screen bg-[#0e2a20] text-white">
+        <div className="container mx-auto px-4 min-h-screen bg-[#0e2a20] text-white">
             <DashboardHeader />
             <NavMenu />
             <StatusBar />
