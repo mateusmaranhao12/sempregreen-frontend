@@ -1,5 +1,4 @@
 import DashboardHeader from '@/components/DashboardHeader';
-import MatchList from '@/components/MatchList';
 import StatusBar from '@/components/StatusBar';
 import TabSelector from '@/components/TabSelector';
 
@@ -9,7 +8,6 @@ export default function DashboardPage() {
             <DashboardHeader />
             <StatusBar />
             <TabSelector />
-            <MatchList />
         </div>
     );
 }
