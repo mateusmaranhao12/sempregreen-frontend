@@ -1,8 +1,8 @@
-import Button from "@/components/Button";
-import Form from "@/components/Form";
-import FormContainer from "@/components/FormContainer";
-import Input from "@/components/Input";
-import Logo from "@/components/LogoCompleta";
+import Button from "@/components/buttons/Button";
+import Form from "@/components/forms/Form";
+import FormContainer from "@/components/forms/FormContainer";
+import Input from "@/components/inputs/InputText";
+import Logo from "@/components/logos/LogoCompleta";
 import { useRouter } from "next/navigation";
 
 export default function CadastroForm() {

@@ -1,6 +1,6 @@
-import DashboardHeader from '@/components/DashboardHeader';
-import StatusBar from '@/components/StatusBar';
-import TabSelector from '@/components/TabSelector';
+import DashboardHeader from '@/components/dashboard/DashboardHeader';
+import StatusBar from '@/components/navbars/StatusBar';
+import TabSelector from '@/components/navbars/TabSelector';
 
 export default function DashboardPage() {
     return (

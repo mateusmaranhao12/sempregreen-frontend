@@ -1,11 +1,11 @@
 'use client';
 
-import Logo from '@/components/Logo';
+import Logo from '@/components/logos/Logo';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FaSignOutAlt } from 'react-icons/fa';
-import country from '../app/assets/br.png';
-import NavMenu from './NavMenu';
+import country from '../../app/assets/br.png';
+import NavMenu from '../navbars/NavMenu';
 
 export default function DashboardHeader() {
     const router = useRouter();
