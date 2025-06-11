@@ -1,5 +1,14 @@
+import MatchCard from "./card/MatchCard";
+
 export default function MatchListPre() {
     return (
-        <h1>MatchListPre</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+            <MatchCard />
+            <MatchCard />
+            <MatchCard />
+            <MatchCard />
+            <MatchCard />
+            <MatchCard />
+        </div>
     );
 }
