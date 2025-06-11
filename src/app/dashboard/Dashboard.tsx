@@ -1,4 +1,4 @@
-import DashboardHeader from '@/components/dashboard/DashboardHeader';
+import DashboardHeader from '@/components/navbars/DashboardHeader';
 import StatusBar from '@/components/navbars/StatusBar';
 import TabSelector from '@/components/navbars/TabSelector';
 

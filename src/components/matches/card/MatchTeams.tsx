@@ -7,7 +7,7 @@ export default function MatchTeams() {
   }
 
   return (
-    <div className="text-sm font-semibold space-y-3">
+    <div className="text-sm font-semibold">
       <div className="flex items-center justify-center md:justify-start gap-2">
         <span>New York Yankees (M Fried)</span>
         <button

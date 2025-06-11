@@ -1,4 +1,4 @@
-import MatchBookmakersButton from "./MatchBookmakersButton";
+import MatchBookmakersButton from "../../buttons/MatchBookmakersButton";
 
 export default function MatchBookmakers() {
     return (

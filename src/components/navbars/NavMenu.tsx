@@ -1,4 +1,4 @@
-import DashboardButtons from '../dashboard/DashboardButtons'
+import DashboardButtons from '../buttons/DashboardButtons'
 import { MdMenu } from 'react-icons/md';
 import {
     FaFlag,
