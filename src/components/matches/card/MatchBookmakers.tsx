@@ -1,10 +1,26 @@
 import MatchBookmakersButton from "../../buttons/MatchBookmakersButton";
 
-export default function MatchBookmakers() {
+interface BookmakerButtonProps {
+    label: string
+    bgColor: string
+    textColor: string
+}
+
+interface MatchBookmakersProps {
+    buttons: BookmakerButtonProps[]
+}
+
+export default function MatchBookmakers({ buttons }: MatchBookmakersProps) {
     return (
         <div className="flex gap-2 md:justify-start justify-center">
-            <MatchBookmakersButton label="Betfair SB" bgColor="bg-black" textColor="text-yellow-300" />
-            <MatchBookmakersButton label="Betfast" bgColor="bg-green-600" textColor="text-white" />
+            {buttons.map((button, index) => (
+                <MatchBookmakersButton
+                    key={index}
+                    label={button.label}
+                    bgColor={button.bgColor}
+                    textColor={button.textColor}
+                />
+            ))}
         </div>
-    );
+    )
 }
