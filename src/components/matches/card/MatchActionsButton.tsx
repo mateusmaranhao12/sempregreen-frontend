@@ -14,7 +14,8 @@ export default function MatchActionsButton({
     children
 }: ActionButtonProps) {
     return (
-        <button className={`${bgColor} ${textColor} px-2 py-1 rounded text-xl flex items-center justify-center cursor-pointer hover:scale-105 transition duration-150 ease-in-out`}>
+        <button className={`${bgColor} ${textColor} px-2 py-2 rounded text-2xl md:text-4xl flex items-center justify-center 
+        cursor-pointer hover:scale-105 transition duration-150 ease-in-out`}>
             {children || label}
         </button>
     )

@@ -2,7 +2,7 @@ import { FaArrowUp, FaArrowDown, FaFlag } from 'react-icons/fa';
 
 export default function MatchOdds() {
     return (
-        <div className="flex justify-start text-sm font-bold text-black">
+        <div className="flex justify-start text-sm md:text-1xl font-bold text-black">
             <div className="pr-4">
                 <div className="flex items-center gap-1">
                     <FaArrowUp className="text-green-600" />
