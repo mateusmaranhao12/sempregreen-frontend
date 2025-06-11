@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaFire } from "react-icons/fa";
-import MatchListPre from "../matchs/MatchListPre";
-import MatchListEV from "../matchs/MatchListEV";
-import MatchListLive from "../matchs/MatchListLive";
+import MatchListPre from "../matches/MatchListPre";
+import MatchListEV from "../matches/MatchListEV";
+import MatchListLive from "../matches/MatchListLive";
 
 export default function TabSelector() {
 
