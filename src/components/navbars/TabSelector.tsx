@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import { FaFire } from "react-icons/fa";
 import MatchListPre from "../matches/MatchListPre";

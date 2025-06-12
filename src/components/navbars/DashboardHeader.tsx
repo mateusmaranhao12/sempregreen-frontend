@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import Logo from '@/components/logos/Logo';
 import Image from 'next/image';

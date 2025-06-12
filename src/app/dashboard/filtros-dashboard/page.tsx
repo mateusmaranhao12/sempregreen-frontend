@@ -1,11 +1,12 @@
 'use client'
-import DashboardLayout from '@/components/layouts/DashboardLayout';
-import TabSelector from '@/components/navbars/TabSelector';
 
-export default function DashboardPage() {
+import DashboardLayout from '@/components/layouts/DashboardLayout';
+import FiltrosDashboard from './FiltrosDashboard';
+
+export default function FiltrosDashboardPage() {
     return (
         <DashboardLayout>
-            <TabSelector />
+            <FiltrosDashboard />
         </DashboardLayout>
     );
 }
