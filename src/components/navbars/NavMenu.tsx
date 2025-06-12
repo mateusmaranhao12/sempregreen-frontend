@@ -31,7 +31,8 @@ export default function NavMenu() {
         {
             icon: <FaCalculator size={20} />,
             label: 'Calculadora',
-            bg: 'bg-blue-600 text-white'
+            bg: 'bg-blue-600 text-white',
+            onClick: () => router.push('/dashboard/calculadora-dashboard')
         },
         {
             icon: <FaQuestionCircle size={20} />,
@@ -42,12 +43,14 @@ export default function NavMenu() {
         {
             icon: <FaShieldAlt size={20} />,
             label: 'Planos',
-            bg: 'bg-yellow-500'
+            bg: 'bg-yellow-500',
+            onClick: () => router.push('/dashboard/planos-dashboard')
         },
         {
             icon: <FaChartLine size={20} />,
             label: 'Gestão',
-            bg: 'bg-[#00112e] text-white'
+            bg: 'bg-[#00112e] text-white',
+            onClick: () => router.push('/dashboard/gestao-dashboard')
         },
     ]
     
