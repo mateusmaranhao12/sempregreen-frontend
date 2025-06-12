@@ -1,5 +1,5 @@
-import { FaCalculator, FaTrash } from 'react-icons/fa';
-import MatchActionsButton from '../../buttons/MatchActionsButton';
+import { FaCalculator, FaTrash } from 'react-icons/fa'
+import MatchActionsButton from '../../buttons/MatchActionsButton'
 
 export default function MatchActions() {
   return (

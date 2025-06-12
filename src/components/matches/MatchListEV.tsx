@@ -2,19 +2,26 @@ import { FiCopy } from 'react-icons/fi'
 import MatchCardEV from './card/MatchCardEV'
 import { FaXmark } from 'react-icons/fa6'
 import MatchBookmakers from './card/MatchBookmakers'
+import MatchBookmakersButton from '../buttons/MatchBookmakersButton'
 
 export default function MatchListEV() {
     const handleCopy = (text: string) => navigator.clipboard.writeText(text)
 
     const bookmakers = [
-        { label: 'bet365', bgColor: 'bg-green-900', textColor: 'text-white' }
+        {
+            label: 'bet365',
+            bgColor: 'bg-green-900',
+            textColor: 'text-white',
+            width: 'w-40',
+            textSize: 'text-2xl'
+        }
     ]
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4'>
             <MatchCardEV
-                percentage="14,82%"
-                percentageColor="text-blue-600"
+                percentage='14,82%'
+                percentageColor='text-blue-600'
                 label="% Supervalorização"
                 datetime='EV - in 5 hours - <span class="text-black">1st Half (Ordinary Time)</span>'
                 player1={
@@ -38,8 +45,19 @@ export default function MatchListEV() {
                 bookmakers={<MatchBookmakers buttons={bookmakers} />}
                 actions={
                     <div className="flex items-center gap-2 mt-2">
-                        <button className="bg-red-600 cursor-pointer text-white px-2 py-1 text-sm rounded"><FaXmark size={16} /></button>
-                        <button className="bg-gray-900 cursor-pointer text-white px-2 py-1 text-sm rounded">+ Gestão</button>
+                        <MatchBookmakersButton
+                            label={<FaXmark size={16} />}
+                            bgColor="bg-red-600"
+                            textColor="text-white"
+                            textSize="text-sm"
+                        />
+                        <MatchBookmakersButton
+                            label="+ Gestão"
+                            bgColor="bg-gray-900"
+                            textColor="text-white"
+                            width="w-auto"
+                            textSize="text-sm"
+                        />
                     </div>
                 }
             />

@@ -56,38 +56,6 @@ export default function MatchListPre() {
                 bookmakers={<MatchBookmakers buttons={bookmakers} />}
                 actions={<MatchActions />}
             />
-
-            <MatchCard
-                percentage='7,89%'
-                percentageColor='text-black'
-                datetime='12/06 18:00'
-                player1={
-                    <div className='flex items-center gap-1'>
-                        <span>New York Yankees (M Fried)</span>
-                        <button
-                            onClick={() => handleCopy('New York Yankees (M Fried)')}
-                            className='text-blue-500 hover:text-black cursor-pointer'
-                        >
-                            <FiCopy size={16} />
-                        </button>
-                    </div>
-                }
-                player2={
-                    <div className='flex items-center gap-1'>
-                        <span>Kansas City Royals (N Cameron)</span>
-                        <button
-                            onClick={() => handleCopy('Kansas City Royals (N Cameron)')}
-                            className='text-blue-500 hover:text-black cursor-pointer'
-                        >
-                            <FiCopy size={16} />
-                        </button>
-                    </div>
-                }
-                tagList={<MatchTags tags={tags} />}
-                odds={<MatchOdds odds={odds} />}
-                bookmakers={<MatchBookmakers buttons={bookmakers} />}
-                actions={<MatchActions />}
-            />
         </div>
     )
 }

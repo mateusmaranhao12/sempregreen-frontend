@@ -4,6 +4,8 @@ interface BookmakerButtonProps {
     label: string
     bgColor: string
     textColor: string
+    width?: string
+    textSize?: string
 }
 
 interface MatchBookmakersProps {
@@ -19,6 +21,8 @@ export default function MatchBookmakers({ buttons }: MatchBookmakersProps) {
                     label={button.label}
                     bgColor={button.bgColor}
                     textColor={button.textColor}
+                    width={button.width}
+                    textSize={button.textSize}
                 />
             ))}
         </div>

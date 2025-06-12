@@ -1,13 +1,15 @@
 interface BookmakerButtonProps {
-    label: string;
-    bgColor: string;
-    textColor: string;
+    label: React.ReactNode
+    bgColor: string
+    textColor: string
+    width?: string
+    textSize?: string
 }
 
-export default function MatchBookmakersButton({ label, bgColor, textColor }: BookmakerButtonProps) {
+export default function MatchBookmakersButton({ label, bgColor, textColor, width = '', textSize = 'text-xl' }: BookmakerButtonProps) {
     return (
         <button
-            className={`${bgColor} ${textColor} py-1 px-3 rounded font-semibold text-xl cursor-pointer hover:scale-105 transition`}
+            className={`${bgColor} ${textColor} ${width} ${textSize} py-1 px-3 rounded font-semibold cursor-pointer hover:scale-105 transition`}
         >
             {label}
         </button>
