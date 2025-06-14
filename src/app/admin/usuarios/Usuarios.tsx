@@ -9,10 +9,23 @@ import { adminMenuSections } from '@/config/adminMenuConfig'
 import Link from 'next/link'
 import { useState } from 'react'
 import AdminMenuSection from '../dashboard/components/AdminMenuSection'
+import type { TableRow } from '@/components/ui/AdminTable'
+import AdminAddButton from '@/components/buttons/AdminAddButton'
 
 export default function UsuariosPage() {
     const [showMenu, setShowMenu] = useState(true)
+    const [showFilters, setShowFilters] = useState(true)
     const [search, setSearch] = useState('')
+
+    const headers = [
+        '',
+        'EMAIL',
+        'CACHED IP',
+        'SITE',
+        'PRIMEIRO NOME',
+        'DATA DE REGISTRO',
+        'WHATSAPP',
+    ]
 
     const usuarios = [
         {
@@ -23,41 +36,14 @@ export default function UsuariosPage() {
             data: '10/03/2025 12:58:46',
             whatsapp: '55119876543',
         },
-        {
-            email: '00felipe.ff@gmail.com',
-            ip: '-',
-            site: 'sinais.sempregreen.com.br',
-            nome: 'Felipe Rodrigues',
-            data: '14/01/2024 08:54:40',
-            whatsapp: '(88)9.9713-07',
-        },
-        {
-            email: '011fernando.oliveira@gmail.com',
-            ip: '2804:431:c7fc:2314:f98a:a757:e454:b352',
-            site: 'sinais.sempregreen.com.br',
-            nome: 'Fernando',
-            data: '10/09/2024 13:15:12',
-            whatsapp: '(11)9.4873-89',
-        },
+        // ...
     ]
 
-    const headers = [
-        'EMAIL',
-        'CACHED IP',
-        'SITE',
-        'PRIMEIRO NOME',
-        'DATA DE REGISTRO',
-        'WHATSAPP',
-    ]
-
-    const rows = usuarios.map((u) => [
-        u.email,
-        u.ip,
-        u.site,
-        u.nome,
-        u.data,
-        u.whatsapp,
-    ])
+    const rows: TableRow[] = usuarios.map(u => ({
+        slug: 'usuarios',
+        actions: ['edit'],
+        data: [u.email, u.ip, u.site, u.nome, u.data, u.whatsapp],
+    }))
 
     return (
         <div className="flex flex-col gap-4">
@@ -67,7 +53,7 @@ export default function UsuariosPage() {
                     <Link href="/admin/dashboard">
                         <Button variant="gray">Voltar ao dashboard</Button>
                     </Link>
-                    <Button variant="gray">Adicionar 0 - Usuário</Button>
+                    <AdminAddButton />
                 </div>
             </div>
 
@@ -117,7 +103,7 @@ export default function UsuariosPage() {
 
                 {/* Botão de exibir menu (aparece só quando menu estiver oculto) */}
                 {!showMenu && (
-                    <div className="md:w-12">
+                    <div className="md:w-28">
                         <Button
                             onClick={() => setShowMenu(true)}
                             className="text-xs px-2 py-1 rounded"
@@ -140,7 +126,33 @@ export default function UsuariosPage() {
                     </div>
                 </main>
 
-                <SidebarFilters />
+                {/*Botao de exibir e ocultar o menu do filtro */}
+                {showFilters && (
+                    <aside className="w-full md:w-1/4 flex flex-col">
+                        <SidebarFilters
+                            onClose={() => setShowFilters(false)}
+                            filters={[
+                                { label: 'por membro da equipe', options: ['Todos', 'Sim', 'Não']},
+                                { label: 'por status de superusuário', options: ['Todos', 'Sim', 'Não'] },
+                                { label: 'por ativo', options: ['Todos', 'Sim', 'Não'] },
+                                { label: 'por grupos', options: ['Todos', 'Sim', 'Não'] },
+                            ]}
+                        />
+                    </aside>
+                )}
+
+                {!showFilters && (
+                    <div className="flex flex-col w-28">
+                        <Button
+                            onClick={() => setShowFilters(true)}
+                            className="text-xs px-2 py-1 rounded"
+                            variant="gray"
+                        >
+                            Exibir filtros
+                        </Button>
+                    </div>
+                )}
+
             </div>
         </div>
     )
