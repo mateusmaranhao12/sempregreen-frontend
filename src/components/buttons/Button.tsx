@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'yellow' | 'blue' | 'white' | 'green' | 'white_border_blue'
+    variant?: 'yellow' | 'blue' | 'white' | 'green' | 'white_border_blue' | 'gray'
     className?: string
 }
 
@@ -12,6 +12,7 @@ export default function Button({ variant = 'yellow', className = '', ...props }:
     blue: 'bg-blue-600  text-white cursor-pointer hover:bg-blue-700',
     white: 'bg-transparent  text-white cursor-pointer border border-white hover:bg-white hover:text-black',
     green: 'bg-green-500  text-white cursor-pointer hover:bg-green-600',
+    gray: 'bg-gray-500  text-white cursor-pointer hover:bg-gray-600',
     white_border_blue: 'bg-transparent text-blue-500 cursor-pointer border border-blue-600 hover:bg-white hover'
   };
 

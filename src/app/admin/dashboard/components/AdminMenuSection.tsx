@@ -2,13 +2,11 @@
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import AdminMenuItem from './AdminMenuItem'
 import { useState } from 'react'
+import type { AdminMenuSection as AdminMenuSectionType } from '@/config/adminMenuConfig'
 
 interface AdminMenuSectionProps {
-    title: string
-    items: {
-        label: string
-        actions?: ('add' | 'edit' | 'view')[]
-    }[]
+    title: AdminMenuSectionType['title']
+    items: AdminMenuSectionType['items']
 }
 
 export default function AdminMenuSection({ title, items }: AdminMenuSectionProps) {

@@ -11,7 +11,7 @@ export default function AdminNavbar() {
             </div>
 
             {/* Lado direito */}
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-right justify-end overflow-x-auto max-w-full">
                 {/* Status online */}
                 <span className="text-red-500 text-base">●</span>
 

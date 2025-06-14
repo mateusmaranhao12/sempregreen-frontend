@@ -1,4 +1,3 @@
-// AdminMenuItem.tsx
 import Link from 'next/link'
 import { FaPlus, FaPen, FaEye } from 'react-icons/fa'
 
@@ -8,8 +7,16 @@ interface AdminMenuItemProps {
     actions?: ('add' | 'edit' | 'view')[]
 }
 
+function slugify(text: string) {
+    return text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+}
+
 export default function AdminMenuItem({ index, label, actions = [] }: AdminMenuItemProps) {
-    const slug = label.toLowerCase().replace(/\s+/g, '-')
+    const slug = slugify(label)
 
     return (
         <div className="flex items-center justify-between px-4 py-2 border-t border-gray-200 text-sm hover:bg-gray-50">
