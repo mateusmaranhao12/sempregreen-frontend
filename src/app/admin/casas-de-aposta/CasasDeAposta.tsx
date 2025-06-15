@@ -87,7 +87,7 @@ export default function CasasDeApostaPage() {
             <EditSaveButton key="botao" isEditing={editandoId === casa.id} onClick={() => toggleEdit(casa.id)} />
         ],
         editableFields: [
-            <Input key="nome" value={casa.nome} onChange={(e) => atualizarCampo(casa.id, 'nome', e.target.value)} />,
+           <span key="nome" className="font-semibold">{casa.nome}</span>,
             <div key="icone" className="text-sm">
                 <label className="inline-block bg-gray-200 px-3 py-1 rounded cursor-pointer text-sm hover:bg-gray-300">
                     Escolher arquivo
@@ -103,7 +103,7 @@ export default function CasasDeApostaPage() {
                 <span className="ml-2 text-xs text-gray-600">{casa.icone}</span>
             </div>,
             <Select key="casa_espelho"
-                value={casa.casaEspelho || ''}
+                value={casa.casaEspelho || ''} className="min-w-[120px]"
                 onChange={(e) => atualizarCampo(casa.id, 'casaEspelho', e.target.value)}
             >
                 <option value="">Selecione...</option>
@@ -177,7 +177,7 @@ export default function CasasDeApostaPage() {
 
                 <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto">
                     <AdminTable
-                        headers={['Nome', 'Ícone', 'Modality', 'Casa Espelho', 'Substituir De', 'Substituir Para', 'Ações']}
+                        headers={['Ações', 'Nome', 'Ícone', 'Modality', 'Casa Espelho', 'Substituir De', 'Substituir Para']}
                         rows={rows}
                         selection={{ isSelected, toggle, toggleAll, isAllSelected }}
                     />

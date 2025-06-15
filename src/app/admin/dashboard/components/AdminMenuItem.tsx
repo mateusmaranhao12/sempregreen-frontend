@@ -20,9 +20,10 @@ export default function AdminMenuItem({ index, label, actions = [] }: AdminMenuI
     const slug = slugify(label)
     const pathname = usePathname()
     const isDashboard = pathname === '/admin/dashboard'
+    const isActive = pathname.includes(`/admin/${slug}`) && !isDashboard
 
     return (
-        <div className="flex items-center justify-between px-4 py-2 border-t border-gray-200 text-sm hover:bg-gray-50">
+        <div className={`flex items-center justify-between px-4 py-2 border-t border-gray-200 text-sm ${isActive ? 'bg-emerald-100 font-semibold' : 'hover:bg-gray-50'}`}>
             <Link href={`/admin/${slug}`} className="font-medium hover:underline text-black">
                 {index} - {label}
             </Link>
