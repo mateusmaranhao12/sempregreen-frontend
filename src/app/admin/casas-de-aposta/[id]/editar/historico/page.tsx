@@ -8,12 +8,17 @@ import { useState } from 'react'
 import AdminMenuSection from '@/app/admin/dashboard/components/AdminMenuSection'
 import { adminMenuSections } from '@/config/adminMenuConfig'
 
-export default function HistoricoPage() {
+export default function HistoricoCasaApostaPage() {
     const headers = ['DATA/HORA', 'USUÁRIO', 'AÇÃO']
-    const rows = [
-        ['12/06/2025 10:18:07', 'mateusnmaranhao@gmail.com (Mateus)', 'User mateusnmaranhao@gmail.com logged in as exemplo@email.com.'],
-    ]
     const [showMenu, setShowMenu] = useState(true)
+    const rows = [
+        ['04/02/2025 12:28:15', 'admin@example.com', 'Adicionado.'],
+        ['17/02/2025 18:30:00', 'admin@example.com', 'Alterado Substituir de.'],
+        ['20/03/2025 12:30:18', 'admin@example.com', 'Alterado URL.'],
+        ['24/05/2025 13:51:43', 'admin@example.com', 'Alterado Ícone.'],
+        ['24/05/2025 13:53:27', 'admin@example.com', 'Alterado Ícone.'],
+        ['24/05/2025 13:53:39', 'admin@example.com', 'Alterado Ícone.'],
+    ]
 
     return (
         <div className="mx-auto">
@@ -57,12 +62,13 @@ export default function HistoricoPage() {
                     </Link>
 
                     <h1 className="text-xl font-semibold text-gray-700 mb-4">
-                        Histórico de modificações: <span className="text-black">exemplo@email.com</span>
+                        Histórico de modificações: <span className="text-black">1PRA1 Bet - Pré</span>
                     </h1>
 
-                    <Table headers={headers} rows={rows} footer="1 entrada" />
+                    <Table headers={headers} rows={rows} footer="6 entradas" />
                 </main>
             </div>
         </div>
+
     )
 }
