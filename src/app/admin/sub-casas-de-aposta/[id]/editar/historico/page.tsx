@@ -1,13 +1,12 @@
 'use client'
 
-import { use } from 'react'
-import { useState } from 'react'
-import Button from '@/components/buttons/Button'
 import AdminMenuSection from '@/app/admin/dashboard/components/AdminMenuSection'
-import { adminMenuSections } from '@/config/adminMenuConfig'
-import { FaChevronLeft } from 'react-icons/fa'
-import Link from 'next/link'
+import Button from '@/components/buttons/Button'
 import Input from '@/components/inputs/InputText'
+import { adminMenuSections } from '@/config/adminMenuConfig'
+import Link from 'next/link'
+import { useState } from 'react'
+import { FaChevronLeft } from 'react-icons/fa'
 
 interface HistoricoEntry {
     dataHora: string
