@@ -29,7 +29,7 @@ interface ModalEditCasaDeApostaProps {
 export default function ModalEditCasaDeAposta({ onClose, onSave, initialData }: ModalEditCasaDeApostaProps) {
     const [form, setForm] = useState<SubCasaDeAposta>(initialData)
 
-    const handleChange = (key: keyof SubCasaDeAposta, value: any) => {
+    const handleChange = <K extends keyof SubCasaDeAposta>(key: K, value: SubCasaDeAposta[K]) => {
         setForm(prev => ({ ...prev, [key]: value }))
     }
 
@@ -39,7 +39,6 @@ export default function ModalEditCasaDeAposta({ onClose, onSave, initialData }: 
     }
 
     return (
-
         <Modal title='Editar Sub casa de Aposta' onClose={onClose}>
             <form className="space-y-6">
                 <div>
@@ -107,10 +106,11 @@ export default function ModalEditCasaDeAposta({ onClose, onSave, initialData }: 
                     <Input value={form.url || ''} onChange={(e) => handleChange('url', e.target.value)} className="w-full" />
                 </div>
 
-                <div className="pt-6">
+                <div className="pt-6 flex justify-start gap-4">
                     <Button variant="darkgreen" type="button" onClick={handleSubmit}>
                         SALVAR
                     </Button>
+                    <Button variant="red">Apagar</Button>
                 </div>
             </form>
         </Modal>

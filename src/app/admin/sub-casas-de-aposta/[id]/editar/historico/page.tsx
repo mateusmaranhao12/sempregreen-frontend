@@ -25,12 +25,7 @@ const historicoMock: HistoricoEntry[] = [
     { dataHora: '18/01/2025 09:40:17', usuario: 'admin@example.com', acao: 'Alterado Casa que representa a sub casa de aposta.' }
 ]
 
-type Props = {
-    params: Promise<{ id: string }>
-}
-
-export default function HistoricoSubCasaDeAposta({ params }: Props) {
-    const { id } = use(params)
+export default function HistoricoSubCasaDeAposta() {
     const [showMenu, setShowMenu] = useState(true)
 
     return (

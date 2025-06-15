@@ -4,17 +4,11 @@ import Table from '@/components/ui/Table'
 import Link from 'next/link'
 import Button from '@/components/buttons/Button'
 import { FaChevronLeft } from 'react-icons/fa'
-import { use } from 'react'
 import { useState } from 'react'
 import AdminMenuSection from '@/app/admin/dashboard/components/AdminMenuSection'
 import { adminMenuSections } from '@/config/adminMenuConfig'
 
-type Props = {
-    params: Promise<{ id: string }>
-}
-
-export default function EditarEsporteHistoricoPage({ params }: Props) {
-    const { id } = use(params)
+export default function EditarEsporteHistoricoPage() {
     const [showMenu, setShowMenu] = useState(true)
 
     const nomeEsporte = 'Bandy'

@@ -3,9 +3,7 @@
 import { FaPen } from 'react-icons/fa'
 import { ButtonHTMLAttributes } from 'react'
 
-interface EditActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { }
-
-export default function EditActionButton(props: EditActionButtonProps) {
+export default function EditActionButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
         <button
             {...props}

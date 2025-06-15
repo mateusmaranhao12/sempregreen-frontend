@@ -6,9 +6,20 @@ import Input from '@/components/inputs/InputText'
 import { useState } from 'react'
 import Modal from '../ui/Modal'
 
+interface NovaCasaDeApostaPayload {
+  nome: string
+  icone: File | null
+  modality: string
+  casaEspelho: string
+  substituirDe: string
+  substituirPara: string
+  comissao: string
+  url: string
+}
+
 interface ModalAddCasaDeApostaProps {
   onClose: () => void
-  onSave?: (data: any) => void
+  onSave?: (data: NovaCasaDeApostaPayload) => void
 }
 
 export default function ModalAddCasaDeAposta({ onClose, onSave }: ModalAddCasaDeApostaProps) {
