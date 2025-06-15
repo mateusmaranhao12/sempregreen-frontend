@@ -19,7 +19,7 @@ export default function UsuariosPage() {
     const [selectedAction, setSelectedAction] = useState('')
 
     const headers = [
-        '',
+        'AÇÕES',
         'EMAIL',
         'CACHED IP',
         'SITE',
@@ -37,7 +37,6 @@ export default function UsuariosPage() {
             data: '10/03/2025 12:58:46',
             whatsapp: '55119876543',
         },
-        // ...
     ]
 
     const rows: TableRow[] = usuarios.map(u => ({

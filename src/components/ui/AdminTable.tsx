@@ -20,7 +20,6 @@ export default function AdminTable({ headers, rows }: AdminTableProps) {
             <table className="min-w-full table-auto text-sm text-left border-collapse">
                 <thead className="bg-gray-100">
                     <tr>
-                        <th className="px-3 py-2 whitespace-nowrap">AÇÕES</th>
                         {headers.map((header, i) => (
                             <th key={i} className="px-3 py-2 whitespace-nowrap">{header}</th>
                         ))}
