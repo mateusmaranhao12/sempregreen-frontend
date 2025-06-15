@@ -1,5 +1,6 @@
 'use client'
 
+import { use } from 'react'
 import { useState } from 'react'
 import Input from '@/components/inputs/InputText'
 import Button from '@/components/buttons/Button'
@@ -9,7 +10,12 @@ import { FaChevronLeft } from 'react-icons/fa'
 import Link from 'next/link'
 import Select from '@/components/inputs/InputSelect'
 
-export default function EditarUsuarioPage() {
+type Props = {
+    params: Promise<{ id: string }>
+}
+
+export default function EditarUsuarioPage({ params }: Props) {
+    const { id } = use(params)
     const [showMenu, setShowMenu] = useState(true)
 
     const [primeiroNome, setPrimeiroNome] = useState('João da Silva')
@@ -65,9 +71,10 @@ export default function EditarUsuarioPage() {
                     </div>
 
                     <div className="flex gap-2">
-                        <Link href={'/admin/usuarios/editar/historico'}>
+                        <Link href={`/admin/usuarios/${id}/editar/historico`}>
                             <Button variant="gray" className="text-xs px-3 py-1 rounded">Histórico</Button>
                         </Link>
+
                         <Link href="/login">
                             <Button variant="gray" className="text-xs px-3 py-1 rounded">Log in a user</Button>
                         </Link>
