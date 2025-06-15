@@ -102,7 +102,7 @@ export default function CasasDeApostaPage() {
                 </label>
                 <span className="ml-2 text-xs text-gray-600">{casa.icone}</span>
             </div>,
-            <Select
+            <Select key="casa_espelho"
                 value={casa.casaEspelho || ''}
                 onChange={(e) => atualizarCampo(casa.id, 'casaEspelho', e.target.value)}
             >
