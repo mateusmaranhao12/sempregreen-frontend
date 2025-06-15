@@ -11,11 +11,13 @@ import { useState } from 'react'
 import AdminMenuSection from '../dashboard/components/AdminMenuSection'
 import type { TableRow } from '@/components/ui/AdminTable'
 import AdminAddButton from '@/components/buttons/AdminAddButton'
+import AdminSearchControls from '@/components/ui/AdminSearchControls'
 
 export default function UsuariosPage() {
     const [showMenu, setShowMenu] = useState(true)
     const [showFilters, setShowFilters] = useState(true)
     const [search, setSearch] = useState('')
+    const [selectedAction, setSelectedAction] = useState('')
 
     const headers = [
         '',
@@ -57,21 +59,14 @@ export default function UsuariosPage() {
                 </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-2">
-                <Input
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Pesquisar"
-                    className="w-full sm:w-64"
-                />
-                <Select className="w-full sm:w-64">
-                    <option>--------</option>
-                    <option>Excluir</option>
-                    <option>Ativar</option>
-                </Select>
-                <Button variant="gray">Ir</Button>
-                <span className="text-sm text-gray-600">0 de 100 selecionados</span>
-            </div>
+            <AdminSearchControls
+                search={search}
+                onSearchChange={setSearch}
+                selectedOption={selectedAction}
+                onOptionChange={setSelectedAction}
+                onSubmit={() => console.log('Executar ação:', selectedAction)}
+                totalSelecionados="0 de 100 selecionados"
+            />
 
             <div className="flex flex-col md:flex-row gap-6 md:min-h-screen md:overflow-hidden">
                 {showMenu && (
@@ -132,7 +127,7 @@ export default function UsuariosPage() {
                         <SidebarFilters
                             onClose={() => setShowFilters(false)}
                             filters={[
-                                { label: 'por membro da equipe', options: ['Todos', 'Sim', 'Não']},
+                                { label: 'por membro da equipe', options: ['Todos', 'Sim', 'Não'] },
                                 { label: 'por status de superusuário', options: ['Todos', 'Sim', 'Não'] },
                                 { label: 'por ativo', options: ['Todos', 'Sim', 'Não'] },
                                 { label: 'por grupos', options: ['Todos', 'Sim', 'Não'] },
