@@ -7,7 +7,7 @@ import Input from '@/components/inputs/InputText'
 import { adminMenuSections } from '@/config/adminMenuConfig'
 import Link from 'next/link'
 import { useState } from 'react'
-import { FaChevronLeft, FaEdit, FaPlus, FaEye } from 'react-icons/fa'
+import { FaChevronLeft } from 'react-icons/fa'
 
 export default function AdicionarSubEsportePage() {
     const [showMenu, setShowMenu] = useState(true)

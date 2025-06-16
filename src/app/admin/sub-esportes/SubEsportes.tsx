@@ -55,7 +55,7 @@ export default function SubEsportesPage() {
         actions: ['edit'],
         data: [
             <span className="font-medium" key="nome">{s.nome}</span>,
-            <span className="min-w-[180px] block font-medium text-sm text-gray-700">
+            <span key="representando" className="min-w-[180px] block font-medium text-sm text-gray-700">
                 {s.representado || '--------'}
             </span>,
             <span key="fornecedor">{s.fornecedor}</span>,

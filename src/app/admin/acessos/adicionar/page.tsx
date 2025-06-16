@@ -1,13 +1,12 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
-import { FaChevronLeft, FaEdit, FaPlus, FaEye } from 'react-icons/fa'
-
-import Button from '@/components/buttons/Button'
-import Input from '@/components/inputs/InputText'
-import Select from '@/components/inputs/InputSelect'
+import { useState } from 'react'
+import { FaChevronLeft } from 'react-icons/fa'
 import AdminMenuSection from '@/app/admin/dashboard/components/AdminMenuSection'
+import Button from '@/components/buttons/Button'
+import Select from '@/components/inputs/InputSelect'
+import Input from '@/components/inputs/InputText'
 import { adminMenuSections } from '@/config/adminMenuConfig'
 
 export default function AdicionarAcessoPage() {
