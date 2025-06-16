@@ -1,12 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import AdminMenuSection from '@/app/admin/dashboard/components/AdminMenuSection'
 import Button from '@/components/buttons/Button'
 import Input from '@/components/inputs/InputText'
-import AdminMenuSection from '@/app/admin/dashboard/components/AdminMenuSection'
 import { adminMenuSections } from '@/config/adminMenuConfig'
-import AdminAddButton from '@/components/buttons/AdminAddButton'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function EditarMercadoPagoPage() {
     const [showMenu, setShowMenu] = useState(true)
