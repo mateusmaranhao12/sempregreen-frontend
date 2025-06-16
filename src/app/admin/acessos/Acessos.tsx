@@ -1,48 +1,58 @@
-'use client'
+"use client"
 
-import { useSelection } from '@/app/utils/useSelection'
+import { useMemo, useState } from 'react'
+import Link from 'next/link'
 import AdminAddButton from '@/components/buttons/AdminAddButton'
 import Button from '@/components/buttons/Button'
 import Input from '@/components/inputs/InputText'
 import AdminSearchControls from '@/components/ui/AdminSearchControls'
 import type { TableRow } from '@/components/ui/AdminTable'
 import AdminTable from '@/components/ui/AdminTable'
-import SidebarFilters from '@/components/ui/SidebarFilters'
 import { adminMenuSections } from '@/config/adminMenuConfig'
-import Link from 'next/link'
-import { useMemo, useState } from 'react'
 import AdminMenuSection from '../dashboard/components/AdminMenuSection'
+import { useSelection } from '@/app/utils/useSelection'
 
-export default function EsportesPage() {
+export default function AcessosPage() {
     const [showMenu, setShowMenu] = useState(true)
-    const [showFilters, setShowFilters] = useState(true)
     const [search, setSearch] = useState('')
     const [selectedAction, setSelectedAction] = useState('')
 
-    const esportes = useMemo(() => [
-        { id: 1, nome: 'Bandy', modalidade: 'Pré' },
-        { id: 2, nome: 'Snooker', modalidade: 'Pré' },
-        { id: 3, nome: 'Futebol Americano', modalidade: 'Live' },
-        { id: 4, nome: 'Baseball', modalidade: 'Pré' },
-        { id: 5, nome: 'Tênis', modalidade: 'Pré' },
-        { id: 6, nome: 'Sinuca', modalidade: 'Pré' },
-        { id: 7, nome: 'Hóquei de grama', modalidade: 'Pré' },
-        { id: 8, nome: 'DOTA 2', modalidade: 'Live' },
-        { id: 9, nome: 'Cricket', modalidade: 'Pré' },
-        { id: 10, nome: 'Vôlei de Praia', modalidade: 'Pré' }
+    const acessos = useMemo(() => [
+        {
+            id: 1,
+            email: 'lonnieabensonjonathanshawkins@gmail.com',
+            senha: 'Q!w2bet987',
+            fornecedor: 'surebet.com',
+            proxy: '191.101.143.229:12324:14ac7e101b167:32f03e3a21',
+            mensagem: 'Sincronizando...',
+            status: 'erro'
+        },
+        {
+            id: 2,
+            email: 'hamadanshaikh59@gmail.com',
+            senha: 'Q!w2bet987',
+            fornecedor: 'betburguer.com',
+            proxy: 'gw.dataimpulse.com:824:cd2b50bb3071f67e6d62__cr.br:45e249337775e314',
+            mensagem: 'Sincronizando...',
+            status: 'erro'
+        }
     ], [])
 
     const rows: TableRow[] = useMemo(() => {
-        return esportes.map((e) => ({
-            id: e.id,
-            slug: 'esportes',
+        return acessos.map((a) => ({
+            id: a.id,
+            slug: 'acessos',
             actions: ['edit'],
             data: [
-                <span className="font-medium" key="nome">{e.nome}</span>,
-                <span className="text-gray-800" key="modalidade">{e.modalidade}</span>
-            ],
+                a.email,
+                a.senha,
+                a.fornecedor,
+                a.proxy,
+                a.mensagem,
+                <span className="text-red-600 font-bold" key="status">✖</span>
+            ]
         }))
-    }, [esportes])
+    }, [acessos])
 
     const {
         selectedIds,
@@ -56,13 +66,13 @@ export default function EsportesPage() {
         <div className="flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
                 <h1 className="text-2xl font-bold">
-                    Selecione {selectedIds.length} - Esporte para modificar
+                    Selecione 6 - Acesso para modificar
                 </h1>
                 <div className="flex gap-2">
                     <Link href="/admin/dashboard">
                         <Button variant="gray">Voltar ao dashboard</Button>
                     </Link>
-                    <AdminAddButton />
+                    <AdminAddButton/>
                 </div>
             </div>
 
@@ -72,11 +82,8 @@ export default function EsportesPage() {
                 selectedOption={selectedAction}
                 onOptionChange={setSelectedAction}
                 onSubmit={() => console.log('Executar ação:', selectedAction)}
-                totalSelecionados={`${selectedIds.length} de ${esportes.length} selecionados`}
-                actions={[
-                    { label: '--------', value: '' },
-                    { label: 'Excluir', value: 'excluir' },
-                ]}
+                totalSelecionados={`${selectedIds.length} de ${acessos.length} selecionados`}
+                actions={[{ label: '--------', value: '' }]}
                 hideSearchInput={true}
             />
 
@@ -117,37 +124,16 @@ export default function EsportesPage() {
 
                 <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto">
                     <AdminTable
-                        headers={['NOME', 'MODALIDADE']}
+                        headers={['USUÁRIO', 'SENHA', 'FORNECEDOR', 'PROXY', 'MENSAGEM DO SISTEMA', 'SIGNALIZAÇÃO']}
                         rows={rows}
                         selection={{
                             isSelected,
                             toggle,
                             toggleAll,
-                            isAllSelected
+                            isAllSelected,
                         }}
                     />
                 </main>
-
-                {showFilters && (
-                    <aside className="w-full md:w-1/4 flex flex-col">
-                        <SidebarFilters
-                            onClose={() => setShowFilters(false)}
-                            filters={[{ label: 'por Modalidade', options: ['Todos', 'Pré', 'Live'] }]}
-                        />
-                    </aside>
-                )}
-
-                {!showFilters && (
-                    <div className="flex flex-col w-28">
-                        <Button
-                            onClick={() => setShowFilters(true)}
-                            className="text-xs px-2 py-1 rounded"
-                            variant="gray"
-                        >
-                            Exibir filtros
-                        </Button>
-                    </div>
-                )}
             </div>
         </div>
     )

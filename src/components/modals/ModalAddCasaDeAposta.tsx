@@ -48,7 +48,7 @@ export default function ModalAddCasaDeAposta({ onClose, onSave }: ModalAddCasaDe
   }
 
   return (
-      <Modal title='Adicionar Sub casa de Aposta' onClose={onClose}>
+      <Modal title='Adicionar casa de Aposta' onClose={onClose}>
 
         <form className="space-y-6">
           <div>

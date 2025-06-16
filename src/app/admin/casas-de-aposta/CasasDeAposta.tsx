@@ -177,7 +177,7 @@ export default function CasasDeApostaPage() {
 
                 <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto">
                     <AdminTable
-                        headers={['Ações', 'Nome', 'Ícone', 'Modality', 'Casa Espelho', 'Substituir De', 'Substituir Para']}
+                        headers={['Nome', 'Ícone', 'Modality', 'Casa Espelho', 'Substituir De', 'Substituir Para']}
                         rows={rows}
                         selection={{ isSelected, toggle, toggleAll, isAllSelected }}
                     />

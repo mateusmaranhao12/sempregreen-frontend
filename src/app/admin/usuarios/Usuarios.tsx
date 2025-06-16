@@ -83,8 +83,7 @@ export default function UsuariosPage() {
                 actions={[
                     { label: '--------', value: '' },
                     { label: 'Excluir', value: 'excluir' },
-                    { label: 'Ativar', value: 'ativar' },
-                    { label: 'Tornar Admin', value: 'admin' },
+                    { label: 'Ativar', value: 'ativar' }
                 ]}
             />
 
@@ -127,7 +126,7 @@ export default function UsuariosPage() {
                 {/* Conteúdo principal */}
                 <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto">
                     <AdminTable
-                        headers={['AÇÕES', 'EMAIL', 'CACHED IP', 'SITE', 'PRIMEIRO NOME', 'DATA DE REGISTRO', 'WHATSAPP']}
+                        headers={['EMAIL', 'CACHED IP', 'SITE', 'PRIMEIRO NOME', 'DATA DE REGISTRO', 'WHATSAPP']}
                         rows={rows}
                         selection={{
                             isSelected,

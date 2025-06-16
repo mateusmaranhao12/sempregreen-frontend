@@ -106,6 +106,7 @@ export default function SubCasasDeApostaPage() {
                     { label: 'Excluir', value: 'excluir' },
                     { label: 'Ativar', value: 'ativar' },
                 ]}
+                hideSearchInput={true}
             />
 
             <div className="flex flex-col md:flex-row gap-6 md:min-h-screen md:overflow-hidden">
@@ -135,7 +136,7 @@ export default function SubCasasDeApostaPage() {
 
                 <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto">
                     <AdminTable
-                        headers={['Ações', 'Nome', 'Casa Representada', 'Fornecedor']}
+                        headers={['Nome', 'Casa Representada', 'Fornecedor']}
                         rows={rows}
                         selection={{ isSelected, toggle, toggleAll, isAllSelected }}
                     />

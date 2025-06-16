@@ -1,6 +1,6 @@
 'use client'
 
-import Input from '@/components/inputs/InputText'
+import AdminSearchInput from './AdminSearchInput'
 import Select from '@/components/inputs/InputSelect'
 import Button from '@/components/buttons/Button'
 
@@ -13,6 +13,7 @@ interface AdminSearchControlsProps {
   totalSelecionados?: string
   actions?: { label: string; value: string }[]
   hideTotalSelecionados?: boolean
+  hideSearchInput?: boolean
 }
 
 export default function AdminSearchControls({
@@ -27,17 +28,18 @@ export default function AdminSearchControls({
     { label: 'Excluir', value: 'excluir' },
     { label: 'Ativar', value: 'ativar' }
   ],
-  hideTotalSelecionados = false
+  hideTotalSelecionados = false,
+  hideSearchInput = false
 }: AdminSearchControlsProps) {
   return (
     <div className="flex flex-col sm:flex-row items-center gap-2">
-      <Input
-        value={search}
-        onChange={(e) => onSearchChange(e.target.value)}
-        placeholder="Pesquisar"
-        className="w-full sm:w-64"
-        onKeyDown={(e) => e.key === 'Enter' && onSubmit?.()}
-      />
+      {!hideSearchInput && (
+        <AdminSearchInput
+          value={search}
+          onChange={onSearchChange}
+          onSubmit={onSubmit}
+        />
+      )}
 
       <Select
         value={selectedOption}

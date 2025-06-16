@@ -39,7 +39,7 @@ export default function ModalEditCasaDeAposta({ onClose, onSave, initialData }: 
     }
 
     return (
-        <Modal title='Editar Sub casa de Aposta' onClose={onClose}>
+        <Modal title='Editar casa de Aposta' onClose={onClose}>
             <form className="space-y-6">
                 <div>
                     <label className="block text-sm font-medium mb-1">Nome:</label>
