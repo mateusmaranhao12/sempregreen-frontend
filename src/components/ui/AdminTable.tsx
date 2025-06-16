@@ -93,7 +93,9 @@ export default function AdminTable({ headers, rows, selection }: AdminTableProps
                                                 ? `/admin/${row.slug}/adicionar`
                                                 : action === 'edit'
                                                     ? `/admin/${row.slug}/${row.id}/editar`
-                                                    : `/admin/${row.slug}/remover`
+                                                    : action === 'view'
+                                                        ? `/admin/${row.slug}/${row.id}/visualizar`
+                                                        : `/admin/${row.slug}/remover`
 
                                         return (
                                             <Link href={href} key={index} onClick={(e) => e.stopPropagation()}>
