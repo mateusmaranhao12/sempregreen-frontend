@@ -1,3 +1,4 @@
+'use client'
 import AdminMenuSection from "@/app/admin/dashboard/components/AdminMenuSection"
 import Button from "@/components/buttons/Button"
 import Table from "@/components/ui/Table"
