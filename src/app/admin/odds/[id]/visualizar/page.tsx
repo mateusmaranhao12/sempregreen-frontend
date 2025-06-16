@@ -33,7 +33,7 @@ export default function VisualizarOddPage() {
   }
 
   const renderField = (label: string, value: string | number | JSX.Element) => (
-    <div className="flex border-b py-2">
+    <div className="flex py-2">
       <div className="w-1/4 font-medium text-gray-700 pr-4 text-sm">{label}:</div>
       <div className="flex-1 text-sm text-black" dangerouslySetInnerHTML={{ __html: value.toString() }} />
     </div>
