@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { FaChevronLeft } from "react-icons/fa"
 
-export function HistoricoSubEsportePage() {
+export default function HistoricoSubEsportePage() {
     const [showMenu, setShowMenu] = useState(true)
 
     const nome = 'Basketball'
