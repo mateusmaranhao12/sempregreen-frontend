@@ -1,4 +1,6 @@
 import { FiClock } from "react-icons/fi";
+import MatchPlayers from "./MatchPlayers";
+import CardWrapper from "./CardWrapper";
 
 interface MatchCardProps {
     percentage: string
@@ -25,8 +27,7 @@ export default function MatchCard({
 }: MatchCardProps) {
 
     return (
-        <div className="bg-white rounded shadow p-4 flex flex-col md:flex-row gap-4 text-black text-center md:text-left">
-            
+        <CardWrapper>
             {/* Ações à esquerda */}
             <div className="flex justify-center md:justify-start items-center">
                 {actions}
@@ -45,10 +46,7 @@ export default function MatchCard({
                 </div>
 
                 {/* Times */}
-                <div className="text-sm font-semibold space-y-1">
-                    <div className="flex items-center justify-center md:justify-start gap-1">{player1}</div>
-                    <div className="flex items-center justify-center md:justify-start gap-1">{player2}</div>
-                </div>
+                <MatchPlayers player1={player1} player2={player2} />
 
                 {/* Tags */}
                 <div className="space-y-1">
@@ -61,6 +59,6 @@ export default function MatchCard({
                 {odds}
                 {bookmakers}
             </div>
-        </div>
+        </CardWrapper>
     );
 }

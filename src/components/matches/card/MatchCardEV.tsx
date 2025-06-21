@@ -1,4 +1,6 @@
 import { FaCoins, FaCircle } from 'react-icons/fa'
+import CardWrapper from './CardWrapper'
+import MatchPlayers from './MatchPlayers'
 
 interface MatchCardEVProps {
     percentage: string
@@ -26,7 +28,7 @@ export default function MatchCardEV({
     actions,
 }: MatchCardEVProps) {
     return (
-        <div className='bg-white rounded shadow p-4 flex flex-col md:flex-row gap-4 text-black text-center md:text-left'>
+        <CardWrapper>
             {/* Esquerda */}
             <div className='space-y-2'>
                 {/* Topo: porcentagem + bookmaker */}
@@ -44,10 +46,8 @@ export default function MatchCardEV({
             <div className='flex flex-col gap-2 mt-2 md:mt-0 items-center md:items-start text-center md:text-left'>
 
                 {/* Times */}
-                <div className='text-md font-semibold space-y-1'>
-                    <div className='flex items-center gap-1'>{player1}</div>
-                    <div className='flex items-center gap-1'>{player2}</div>
-                </div>
+                <MatchPlayers player1={player1} player2={player2} />
+
                 <div className='flex items-center gap-1 text-md text-gray-600 font-semibold'>
                     <FaCircle size={8} className='text-gray-400' />
                     {tagList}
@@ -64,7 +64,7 @@ export default function MatchCardEV({
                 </div>
 
             </div>
-        </div>
+        </CardWrapper>
 
     )
 }
