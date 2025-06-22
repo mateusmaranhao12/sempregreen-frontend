@@ -14,8 +14,8 @@ export default function MatchListLive() {
     const highlight = 'LIVE - regular time'
 
     const odds = [
-        { label: 'Team2 Win', value: '2.55' },
-        { labelTop: 'Asian', label: 'Handicap1(0.0)/Draw No Bet', value: '2.05' },
+        { label: 'Team2 Win', value: '2.55', bookmaker: 'bet365' },
+        { labelTop: 'Asian', label: 'Handicap1(0.0)/Draw No Bet', value: '2.05', bookmaker: 'BETANO' },
     ];
 
     const bookmakers = [
