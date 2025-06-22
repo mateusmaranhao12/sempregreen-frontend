@@ -16,7 +16,7 @@ interface MatchCardProps {
 
 export default function MatchCard({
     percentage,
-    percentageColor = "text-green-600",
+    percentageColor = "text-black",
     datetime,
     player1,
     player2,

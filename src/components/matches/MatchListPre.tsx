@@ -1,61 +1,68 @@
-import MatchCard from './card/MatchCard'
+import useProOdds from '@/hooks/usePreOdds'
+import { FiCopy } from 'react-icons/fi'
 import MatchActions from './card/MatchActions'
 import MatchBookmakers from './card/MatchBookmakers'
+import MatchCard from './card/MatchCard'
 import MatchOdds from './card/MatchOdds'
 import MatchTags from './card/MatchTags'
-import { FiCopy } from 'react-icons/fi'
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa'
 
 export default function MatchListPre() {
+    const { data, loading } = useProOdds()
+
     const handleCopy = (text: string) => {
         navigator.clipboard.writeText(text)
     }
 
-    const tags = ['Baseball - Pré', 'MLB • > 120 minutos']
-
-    const odds = [
-        { label: 'Acima 0.5 - Home', value: '1.98', icon: <FaArrowUp className='text-green-600' /> },
-        { label: 'Abaixo 0.5 - Home', value: '2.38', icon: <FaArrowDown className='text-red-600' /> }
-    ]
-
-    const bookmakers = [
-        { label: 'BETANO', bgColor: 'bg-black', textColor: 'text-yellow-400' },
-        { label: 'SUPERBET', bgColor: 'bg-green-700', textColor: 'text-white' }
-    ]
+    if (loading) return <div className="p-4 text-white">Carregando apostas pré...</div>
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4'>
-            <MatchCard
-                percentage='7,89%'
-                percentageColor='text-black'
-                datetime='12/06 18:00'
-                player1={
-                    <div className='flex items-center gap-1'>
-                        <span>New York Yankees (M Fried)</span>
-                        <button
-                            onClick={() => handleCopy('New York Yankees (M Fried)')}
-                            className='text-blue-500 hover:text-black cursor-pointer'
-                        >
-                            <FiCopy size={16} />
-                        </button>
-                    </div>
-                }
-                player2={
-                    <div className='flex items-center gap-1'>
-                        <span>Kansas City Royals (N Cameron)</span>
-                        <button
-                            onClick={() => handleCopy('Kansas City Royals (N Cameron)')}
-                            className='text-blue-500 hover:text-black cursor-pointer'
-                        >
-                            <FiCopy size={16} />
-                        </button>
-                    </div>
-                }
-                tagList={<MatchTags tags={tags} />}
-                odds={<MatchOdds odds={odds} />}
-                bookmakers={<MatchBookmakers buttons={bookmakers} />}
-                actions={<MatchActions />}
-            />
+            {data.map((item, index) => {
+                const tags = [`Casa: ${item.bookmaker}`, `${item.time}`]
+                const bookmakers = [
+                    { label: item.bookmaker.toUpperCase(), bgColor: 'bg-black', textColor: 'text-yellow-400' },
+                ]
+
+                return (
+                    <MatchCard
+                        key={index}
+                        percentage={item.profit.percent}
+                        percentageColor='text-black'
+                        datetime={item.profit.age}
+                        player1={
+                            <div className='flex items-center gap-1'>
+                                <span>{item.player1}</span>
+                                <button
+                                    onClick={() => handleCopy(item.player1)}
+                                    className='text-blue-500 hover:text-black cursor-pointer'
+                                >
+                                    <FiCopy size={16} />
+                                </button>
+                            </div>
+                        }
+                        player2={
+                            <div className='flex items-center gap-1'>
+                                <span>{item.player2}</span>
+                                <button
+                                    onClick={() => handleCopy(item.player2)}
+                                    className='text-blue-500 hover:text-black cursor-pointer'
+                                >
+                                    <FiCopy size={16} />
+                                </button>
+                            </div>
+                        }
+                        tagList={
+                            <div className="space-y-1">
+                                <MatchTags tags={tags} />
+                                <div className="text-xs text-gray-500">{item.competition}</div>
+                            </div>
+                        }
+                        odds={<MatchOdds odds={item.odds} />}
+                        bookmakers={<MatchBookmakers buttons={bookmakers} />}
+                        actions={<MatchActions />}
+                    />
+                )
+            })}
         </div>
     )
 }
