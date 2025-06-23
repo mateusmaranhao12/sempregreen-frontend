@@ -1,17 +1,22 @@
+import { ReactNode } from "react";
+
 interface MatchTagsProps {
-    tags: string[]
+    tags: ReactNode[]
     highlight?: string
 }
 
-export default function MatchTags({ tags, highlight }: MatchTagsProps) {
+export default function MatchTags({ tags }: MatchTagsProps) {
     return (
-        <div className="text-sm text-gray-500 text-center md:text-left space-y-1">
+        <div className="flex flex-col gap-2 items-start">
             {tags.map((tag, index) => (
-                <div key={index}>{tag}</div>
+                <div
+                    key={index}
+                    className="text-sm text-gray-700 leading-tight break-words"
+                >
+                    {tag}
+                </div>
             ))}
-            {highlight && (
-                <div className="text-red-600 font-bold">{highlight}</div>
-            )}
+
         </div>
     );
 }

@@ -17,6 +17,7 @@ export interface SurebetCard {
     time: string
     event: string
     bookmaker: string
+    sport: string
     market: string
     odds: OddItem[]
     player1: string
