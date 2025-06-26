@@ -32,9 +32,13 @@ export default function MatchListPre() {
                     <span key="sport"><strong>Esporte:</strong> {item.sport}</span>
                 ]
 
-                const bookmakers = [
-                    { label: item.bookmaker.toUpperCase(), bgColor: 'bg-black', textColor: 'text-yellow-400' },
-                ]
+                const bookmakers = Array.from(
+                    new Set(item.odds.map(odd => odd.bookmaker))
+                ).map((bookmaker) => ({
+                    label: bookmaker.toUpperCase(),
+                    bgColor: 'bg-black',
+                    textColor: 'text-yellow-400'
+                }))
 
                 return (
                     <MatchCard
