@@ -24,7 +24,6 @@ export default function MatchListPre() {
                 const time = timeMatch?.[2] ?? '--:--'
 
                 const tags = [
-                    <span key="bookmaker"><strong>Casa:</strong> {item.bookmaker}</span>,
                     <span key="datetime" className="flex gap-2">
                         <span>{date}</span>
                         <span>{time}</span>

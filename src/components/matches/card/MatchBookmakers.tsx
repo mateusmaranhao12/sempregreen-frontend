@@ -14,7 +14,7 @@ interface MatchBookmakersProps {
 
 export default function MatchBookmakers({ buttons }: MatchBookmakersProps) {
     return (
-        <div className="flex gap-2 md:justify-start justify-center">
+        <div className="flex flex-wrap gap-2 md:justify-start justify-center max-w-full overflow-hidden">
             {buttons.map((button, index) => (
                 <MatchBookmakersButton
                     key={index}
