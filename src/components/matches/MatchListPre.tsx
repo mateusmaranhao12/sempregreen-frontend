@@ -17,7 +17,7 @@ export default function MatchListPre() {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4'>
-            {data.map((item, index) => {
+            {data.slice(0, 100).map((item, index) => {
 
                 const timeMatch = item.time?.match(/^(\d{2}\/\d{2})\s?(\d{2}:\d{2})$/)
                 const date = timeMatch?.[1] ?? '--/--'
