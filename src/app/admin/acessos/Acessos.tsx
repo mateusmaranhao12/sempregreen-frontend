@@ -11,11 +11,14 @@ import AdminTable from '@/components/ui/AdminTable'
 import { adminMenuSections } from '@/config/adminMenuConfig'
 import AdminMenuSection from '../dashboard/components/AdminMenuSection'
 import { useSelection } from '@/app/utils/useSelection'
+import api from '../../lib/api'
 
 export default function AcessosPage() {
     const [showMenu, setShowMenu] = useState(true)
     const [search, setSearch] = useState('')
     const [selectedAction, setSelectedAction] = useState('')
+    const [cfValue, setCfValue] = useState('')
+    const [feedback, setFeedback] = useState('')
 
     const acessos = useMemo(() => [
         {
@@ -62,6 +65,26 @@ export default function AcessosPage() {
         isAllSelected
     } = useSelection(rows)
 
+    const handleSendCfClearance = async () => {
+        if (!cfValue) return
+
+        try {
+            const res = await api.post('/cf_cookie', {
+                cf_clearance: cfValue
+            })
+
+            if (res.status === 200) {
+                setFeedback('cf_clearance atualizado com sucesso!')
+                setCfValue('')
+            } else {
+                setFeedback('Erro ao atualizar.')
+            }
+        } catch (error) {
+            console.error(error)
+            setFeedback('Erro na requisição.')
+        }
+    }
+
     return (
         <div className="flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
@@ -72,7 +95,7 @@ export default function AcessosPage() {
                     <Link href="/admin/dashboard">
                         <Button variant="gray">Voltar ao dashboard</Button>
                     </Link>
-                    <AdminAddButton/>
+                    <AdminAddButton />
                 </div>
             </div>
 
@@ -122,7 +145,23 @@ export default function AcessosPage() {
                     </div>
                 )}
 
-                <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto">
+                <main className="flex-1 px-2 sm:px-4 py-4 overflow-x-auto flex flex-col gap-4">
+
+                    {/* Input cf_clearance */}
+                    <div className="mb-6 bg-white rounded-lg shadow p-4 flex flex-col gap-2 max-w-xl">
+                        <h2 className="font-bold text-sm">Atualizar cf_clearance manualmente</h2>
+                        <Input
+                            placeholder="Cole o novo valor do cf_clearance..."
+                            value={cfValue}
+                            onChange={(e) => setCfValue(e.target.value)}
+                        />
+                        <div className="flex gap-2 items-center">
+                            <Button onClick={handleSendCfClearance}>Atualizar</Button>
+                            <span className="text-xs">{feedback}</span>
+                        </div>
+                    </div>
+
+                    {/* Tabela */}
                     <AdminTable
                         headers={['USUÁRIO', 'SENHA', 'FORNECEDOR', 'PROXY', 'MENSAGEM DO SISTEMA', 'SIGNALIZAÇÃO']}
                         rows={rows}

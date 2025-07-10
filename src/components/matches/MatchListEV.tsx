@@ -31,11 +31,13 @@ export default function MatchListEV() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4'>
             {data.slice(0, 100).map((item, index) => {
 
-                const [player1, player2] = item.teams.split(' vs ')
+                const player1 = item.player1
+                const player2 = item.player2
+
 
                 return (
                     <MatchCardEV
-                    key={index}
+                        key={index}
                         percentage={`${item.edge}%`}
                         percentageColor='text-blue-600'
                         label="% Supervalorização"

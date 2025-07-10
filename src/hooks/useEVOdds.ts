@@ -6,7 +6,8 @@ export interface EVOdd {
     stake: string
     currency: string
     edge: string
-    teams: string
+    player1: string
+    player2: string
     line: string
     odds: string
     time: string
