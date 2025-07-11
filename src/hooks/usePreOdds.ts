@@ -31,7 +31,8 @@ export default function useProOdds() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/pre')
+            //const response = await axios.get('http://localhost:3001/api/pre')
+            const response = await axios.get('https://sempregreen-backend.onrender.com/api/pre')
             setData(response.data)
         } catch (err) {
             console.error('Erro ao buscar odds pre: ', err)
