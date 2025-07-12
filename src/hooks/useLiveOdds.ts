@@ -20,7 +20,7 @@ export default function useLiveOdds() {
   const fetchData = async () => {
     try {
       //const response = await axios.get('http://localhost:3001/api/live')
-      const response = await axios.get('https://sempregreen-backend.onrender.com/api/live')
+      const response = await axios.get('https://sempregreen-backend-production.up.railway.app/api/live')
       setData(response.data)
     } catch (err) {
       console.error('Erro ao buscar odds ao vivo: ', err)

@@ -20,7 +20,7 @@ export default function useEVOdds() {
     const fetchData = async () => {
         try {
             //const response = await axios.get('http://localhost:3001/api/ev')
-            const response = await axios.get('https://sempregreen-backend.onrender.com/api/ev')
+            const response = await axios.get('https://sempregreen-backend-production.up.railway.app/api/ev')
             setData(response.data)
         } catch (err) {
             console.error('Erro ao buscar odds EV: ', err)
